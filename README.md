@@ -1,4 +1,4 @@
-Active for Laravel
+Active for Laravel 4/5
 ======
 [![Build Status](https://travis-ci.org/letrunghieu/active.png?branch=master)](https://travis-ci.org/letrunghieu/active)
 [![Latest Stable Version](https://poser.pugx.org/hieu-le/active/v/stable.svg)](https://packagist.org/packages/hieu-le/active)
@@ -7,52 +7,56 @@ Active for Laravel
 [![Total Downloads](https://poser.pugx.org/hieu-le/active/downloads.svg)](https://packagist.org/packages/hieu-le/active)
 [![License](https://poser.pugx.org/hieu-le/active/license.svg)](https://packagist.org/packages/hieu-le/active)
 
-> [!CAUTION]
-> **This repository is not maintained any more. Please feel free to fork it and make it compatible to new versions of Laravel.**
-
-The helper class for Laravel applications to get active class base on current url.
-
-Since version 7.0, the major version of this library will match the major version of Laravel.
-
-| Laravel version | Active library version  |
-| --------------- | ----------------------- |
-| >= 7.x          | >= 7.x                  |
-| 6.x             | 4.x                     |
-| 5.x             | 3.x                     |
-| 4.x             | 1.x                     |
-
+The helper class for Laravel 4/5 applications to get active class base on current route.
 ## Installation
 
-Require this package as your dependencies:
+Add this package to your `composer.json` file and run `composer update` once.
+
+For Laravel 5
 
 ```
-composer require hieu-le/active
+"hieu-le/active": "~2.0"
 ```
-> If you are using Laravel 5.5+, you do not need to manually register the ServiceProvider and Alias.
+
+or for Laravel 4
+
+```
+"hieu-le/active": "~1.0"
+```
+
+If you use this package in Laravel, the most suitable version will be selected base on the version of Laravel package.
 
 Append this line to your `providers` array in `config/app.php`
 
 ```php
-HieuLe\Active\ActiveServiceProvider::class,
+'HieuLe\Active\ActiveServiceProvider',
 ```
 
 Append this line to your `aliases` array in `config/app.php`
 
 ```php
-'Active' => HieuLe\Active\Facades\Active::class,
+'Active' => 'HieuLe\Active\Facades\Active',
 ```
 
-## Usage
+### Changes in version 1.2
+Support new method `Active::routePattern`. This method will check the current **route name** with an array of patterns instead of an array of route names.
 
-See: [How to use Active](https://www.hieule.info/tag/laravel-active/)
+### Changes in version 2.0
 
-## Changelog:
+* Support Laravel 5.0
+* Use PSR-4 instead of PSR-0
+* Support new method `Active::uri`. This method will check the current URI (**with** the leading slash `/`)
 
-* v7.0: support Laravel 7 and start using the same marjor version with Laravel
-* v4.0: support Laravel 6 and PHPUnit 8
-* v3.5: support Laravel 5.5.x and PHPUnit 6
-* v3.4: support Laravel 5.4.x
-* v3.3: support Laravel 5.3.x
-* v3.2: allows first parameter of `if_*` functions to be string or array
-* v3.1: support both Laravel 5.2.x and 5.1.x
-* v3.0: new API
+### Changes in version 2.1/1.3
+
+* Support new method `Active::query`. This method will check whether the value of an query string parameter equals to or contains a specified value.
+
+### Changes in version 2.2/1.4
+
+* Support optional parameter for inactive class, thanks @lowerends
+
+### Changes in version 2.3
+
+* Support new method `Active::routePattern`. This method check the current route name and route parameters with some specific values.
+
+For more details about usage see: [this page](http://www.hieule.info/products/active-class-helper-laravel-4/)

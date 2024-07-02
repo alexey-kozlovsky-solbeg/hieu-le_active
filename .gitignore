@@ -3,5 +3,4 @@ composer.phar
 composer.lock
 .DS_Store
 /nbproject/private/
-/.idea
-/.phpunit.result.cache
+nbproject/
